@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="TODOS OS CANAIS por R$39,90/mês: Netflix, Disney+, HBO, Premiere + futebol ao vivo HOJE! Assine CineFlick e libere tudo."/>
-  <title>TODOS OS CANAIS POR R$39,90 - Futebol AO VIVO + Netflix, Disney+</title>
+  <meta name="description" content="Assista futebol ao vivo: Real Madrid, Brasileirão e mais! Acesse +2 mil canais via CineFlick por R$19,90/mês."/>
+  <title>Transmissões de Futebol Ao Vivo - CineFlick | Esportes, Filmes e Séries</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -21,125 +21,247 @@
       color: #fff;
       font-family: 'Press Start 2P', cursive;
       text-align: center;
-      padding: 1rem;
+      padding: 2rem;
       line-height: 1.4;
     }
-    h1 { font-size: 1.6rem; color: var(--primary); margin: 1rem 0; }
-    h2 { color: var(--primary); margin: 2rem 0 1rem; font-size: 1.1rem; }
-    .timer {
-      background: #000;
-      color: var(--accent);
-      padding: 1rem;
-      border: 3px solid var(--accent);
-      border-radius: 12px;
-      font-size: 1.8rem;
-      letter-spacing: 4px;
-      animation: pulse 1s infinite;
-    }
-    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.8; } }
-    .games { 
-      display: grid; 
+    h1 { margin-bottom: 2rem; color: var(--primary); font-size: 1.8rem; }
+    h2 { margin: 3rem 0 1.5rem; color: var(--primary); font-size: 1.2rem; }
+    h3 { color: var(--primary); }
+    .games, .other-games {
+      display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.2rem;
+      gap: 1.5rem;
       max-width: 1200px;
-      margin: 2rem auto;
+      margin: 0 auto 2rem;
     }
     .game-card {
       background: var(--card);
-      padding: 1.2rem;
-      border-radius: 12px;
-      border: 2px solid var(--primary);
-      position: relative;
-      transition: 0.3s;
-    }
-    .game-card:hover { transform: translateY(-6px); box-shadow: 0 0 20px var(--primary); }
-    .closed-badge {
-      position: absolute; top: -10px; right: -10px;
-      background: var(--accent); padding: 0.4rem 0.7rem;
-      border-radius: 50%; font-size: 0.7rem;
-    }
-    .price-badge {
-      position: absolute; top: -10px; left: -10px;
-      background: var(--price); padding: 0.4rem 0.7rem;
-      border-radius: 50%; font-size: 0.7rem;
-    }
-    .channels-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      max-width: 1000px;
-      margin: 1rem auto;
-    }
-    .channel-item {
-      background: var(--card);
-      padding: 1rem;
-      border-radius: 8px;
-      border: 1px solid var(--primary);
-      font-size: 0.8rem;
-    }
-    .channel-item i { color: var(--price); margin-right: 0.5rem; }
-    .btn-pay {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 0.9rem;
-      text-decoration: none;
-      display: block;
-      margin: 1rem auto 0;
-      width: 90%;
-      transition: 0.3s;
-    }
-    .btn-pay:hover { background: #ff5252; transform: scale(1.05); }
-    .featured { grid-column: 1/-1; border: 3px solid var(--accent); }
-    .depoimentos {
-      background: var(--card);
       padding: 1.5rem;
       border-radius: 12px;
-      margin: 2rem auto;
-      max-width: 800px;
+      border: 2px solid var(--primary);
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
     }
-    .depo {
-      background: #111;
-      padding: 1rem;
+    .game-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px var(--primary);
+    }
+    .game-card .closed-badge {
+      position: absolute;
+      top: -10px; right: -10px;
+      background: var(--accent);
+      color: white;
+      padding: 0.3rem 0.6rem;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      border: 1px solid white;
+    }
+    .game-card .price-badge {
+      position: absolute;
+      top: -10px; left: -10px;
+      background: var(--price);
+      color: white;
+      padding: 0.3rem 0.6rem;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      border: 1px solid white;
+    }
+    .game-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem; }
+    .game-card p { margin-bottom: 1rem; font-size: 0.8rem; opacity: 0.8; }
+    .btn-kirvano {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
       border-radius: 8px;
-      margin: 1rem 0;
-      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
       font-size: 0.8rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
     }
-    .depo img { width: 40px; height: 40px; border-radius: 50%; float: left; margin-right: 0.5rem; }
-    footer { margin-top: 3rem; font-size: 0.6rem; opacity: 0.6; }
-    .security { margin: 1rem 0; }
-    .all-channels-promo { background: var(--price); color: #000; padding: 1rem; border-radius: 12px; margin: 1rem 0; font-weight: bold; }
+    .btn-kirvano:hover { background: #ff5252; transform: scale(1.05); }
+    .featured { grid-column: 1 / -1; border-color: var(--accent); }
+    .featured h3 { font-size: 1.3rem; }
+    .benefits { max-width: 800px; margin: 2rem auto; text-align: left; }
+    .benefits ul { list-style: none; }
+    .benefits li { margin-bottom: 0.5rem; padding-left: 1rem; position: relative; }
+    .benefits li::before { content: "▶"; color: var(--primary); position: absolute; left: 0; }
+    .faq { background: var(--card); padding: 2rem; border-radius: 12px; margin: 2rem auto; max-width: 800px; }
+    .faq details { margin-bottom: 1rem; text-align: left; }
+    .faq summary { cursor: pointer; color: var(--primary); }
+    .price-compare { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; margin: 2rem 0; }
+    .price-item { background: var(--card); padding: 1rem; border-radius: 8px; min-width: 120px; }
+    footer { margin-top: 3rem; font-size: 0.7rem; opacity: 0.6; border-top: 1px solid var(--primary); padding-top: 1rem; }
+    @media (max-width: 768px) {
+      body { padding: 1rem; }
+      h1 { font-size: 1.4rem; }
+      .games, .other-games { grid-template-columns: 1fr; gap: 1rem; }
+      .price-compare { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
+  <h1>⚽ TRANSMISSÕES DE FUTEBOL AO VIVO COM CINEFLICK</h1>
+  <p style="font-size: 0.9rem; margin-bottom: 2rem;">Conteúdo ilimitado por um valor que cabe no seu bolso! Acesse +2 mil canais, Netflix, Disney+, HBO Max e esportes ao vivo por apenas R$19,90/mês.</p>
 
-  <h1>FUTEBOL HOJE AO VIVO + TODOS OS CANAIS POR R$39,90</h1>
-  <div class="all-channels-promo">
-    <strong>LIBERE TUDO: Netflix, Disney+, HBO Max, Premiere, ESPN, Globo, TNT, SporTV, Prime Video +2 mil canais por apenas R$39,90/mês!</strong>
-  </div>
-  <div class="timer" id="timer">00:15:00</div>
-  <p style="font-size:0.9rem;margin:1rem 0;">Oferta exclusiva R$39,90 termina em breve! 7 dias de garantia.</p>
-
-  <!-- JOGO EM DESTAQUE -->
+  <!-- Jogo Principal: Real Madrid -->
   <div class="games">
     <div class="game-card featured">
-      <div class="closed-badge">AO VIVO</div>
-      <div class="price-badge">R$39,90</div>
-      <i class="fas fa-tv" style="font-size:2.5rem;color:var(--primary);margin:1rem 0;"></i>
-      <h3>São Paulo x Flamengo</h3>
-      <p>Brasileirão · 21h30<br><strong>Globo + Premiere</strong><br>Todos os canais por R$39,90!</p>
-      <a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank" class="btn-pay">
-        Assine R$39,90 e Libere TODOS os Canais!
-      </a>
+      <div class="closed-badge"><i class="fas fa-lock"></i> Fechado</div>
+      <div class="price-badge">R$19,90/mês</div>
+      <i class="fas fa-futbol" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h3>Real Madrid x Barcelona (El Clásico)</h3>
+      <p>La Liga · 16:15h (Horário de Brasília)<br>
+      Vai passar no ESPN, porém é canal fechado. Se você não tem assinatura desse canal, clique em saiba mais e assista agora via CineFlick: Experimente 7 dias grátis e assista sem limites!</p>
+      <a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank" class="btn-kirvano">Saiba Mais e Assista Agora</a>
     </div>
   </div>
 
-  <!-- OUTROS JOGOS -->
-  <h2>19h00 – Premiere</h2>
-  <div class="games">
-    <div class="game-card"><div class="price-badge">R$39,90</div><h3>Vitória x Internacional</h3><a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank" class="btn-pay">Assine e Assista</a></div>
-    <div class="game-card"><div class="price-badge">R$39,90</div><h3>Bragantino x Corinthians</h3><a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank" class
+  <!-- Seção Outros Jogos -->
+  <h2>Outros Jogos de Hoje (05/11/2025)</h2>
+  <div class="other-games">
+    <div class="game-card">
+      <div class="closed-badge"><i class="fas fa-lock"></i> Fechado</div>
+      <div class="price-badge">R$19,90/mês</div>
+      <i class="fas fa-futbol" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h3>Sport x Juventude</h3>
+      <p>Série B · 19:00h<br>
+      Vai passar no TNT, porém é canal fechado. Se você não tem assinatura desse canal, clique em saiba mais e assista agora via CineFlick: +2 mil canais e esportes ao vivo!</p>
+      <a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank" class="btn-kirvano">Saiba Mais e Assista Agora</a>
+    </div>
+
+    <div class="game-card">
+      <div class="closed-badge"><i class="fas fa-lock"></i> Fechado</div>
+      <div class="price-badge">R$19,90/mês</div>
+      <i class="fas fa-futbol" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h3>Palmeiras x Flamengo</h3>
+      <p>Brasileirão · 21:30h<br>
+      Vai passar no Premiere, porém é canal fechado. Se você não tem assinatura desse canal, clique em saiba mais e assista agora via CineFlick: Canais infantis, animes e mais!</p>
+      <a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank" class="btn-kirvano">Saiba Mais e Assista Agora</a>
+    </div>
+
+    <div class="game-card">
+      <div class="closed-badge"><i class="fas fa-lock"></i> Fechado</div>
+      <div class="price-badge">R$19,90/mês</div>
+      <i class="fas fa-futbol" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h3>Botafogo x River Plate</h3>
+      <p>Libertadores · 21:30h<br>
+      Vai passar no HBO Max, porém é canal fechado. Se você não tem assinatura desse canal, clique em saiba mais e assista agora via CineFlick: Economize com planos trimestrais!</p>
+      <a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank" class="btn-kirvano">Saiba Mais e Assista Agora</a>
+    </div>
+
+    <div class="game-card">
+      <div class="closed-badge"><i class="fas fa-lock"></i> Fechado</div>
+      <div class="price-badge">R$19,90/mês</div>
+      <i class="fas fa-futbol" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h3>Internacional x Peñarol</h3>
+      <p>Sul-Americana · 21:30h<br>
+      Vai passar no Disney+, porém é canal fechado. Se você não tem assinatura desse canal, clique em saiba mais e assista agora via CineFlick: Filmes HD e suporte dedicado!</p>
+      <a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank" class="btn-kirvano">Saiba Mais e Assista Agora</a>
+    </div>
+
+    <div class="game-card">
+      <div class="closed-badge"><i class="fas fa-lock"></i> Fechado</div>
+      <div class="price-badge">R$19,90/mês</div>
+      <i class="fas fa-futbol" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h3>Manchester City x Juventus</h3>
+      <p>Champions League · 17:00h<br>
+      Vai passar no HBO Max, porém é canal fechado. Se você não tem assinatura desse canal, clique em saiba mais e assista agora via CineFlick: Todos os esportes em um lugar!</p>
+      <a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank" class="btn-kirvano">Saiba Mais e Assista Agora</a>
+    </div>
+
+    <div class="game-card">
+      <div class="closed-badge"><i class="fas fa-lock"></i> Fechado</div>
+      <div class="price-badge">R$19,90/mês</div>
+      <i class="fas fa-futbol" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h3>Cruzeiro x Coritiba</h3>
+      <p>Série B · 21:00h<br>
+      Vai passar no SporTV, porém é canal fechado. Se você não tem assinatura desse canal, clique em saiba mais e assista agora via CineFlick: Funciona em Smart TVs e celulares!</p>
+      <a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank" class="btn-kirvano">Saiba Mais e Assista Agora</a>
+    </div>
+
+    <div class="game-card">
+      <div class="closed-badge"><i class="fas fa-lock"></i> Fechado</div>
+      <div class="price-badge">R$19,90/mês</div>
+      <i class="fas fa-futbol" style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h3>São Paulo x Talleres</h3>
+      <p>Sul-Americana · 21:30h<br>
+      Vai passar no ESPN, porém é canal fechado. Se você não tem assinatura desse canal, clique em saiba mais e assista agora via CineFlick: Cancele quando quiser — sem riscos!</p>
+      <a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank" class="btn-kirvano">Saiba Mais e Assista Agora</a>
+    </div>
+  </div>
+
+  <!-- Seção Benefícios -->
+  <h2>Por que CineFlick? A Televisão do Futuro!</h2>
+  <div class="benefits">
+    <ul>
+      <li><i class="fas fa-film" style="color: var(--primary); margin-right: 0.5rem;"></i> Filmes incríveis: Clássicos e lançamentos em HD</li>
+      <li><i class="fas fa-tv" style="color: var(--primary); margin-right: 0.5rem;"></i> Séries imperdíveis: Temporadas completas pra maratonar</li>
+      <li><i class="fas fa-gamepad" style="color: var(--primary); margin-right: 0.5rem;"></i> Animes Crunchyroll: Todos atualizados em HD</li>
+      <li><i class="fas fa-child" style="color: var(--primary); margin-right: 0.5rem;"></i> Canais infantis: Disney+ e diversão pra criançada</li>
+      <li><i class="fas fa-user-secret" style="color: var(--primary); margin-right: 0.5rem;"></i> Canais adultos: Protegidos com senha</li>
+      <li><i class="fas fa-futbol" style="color: var(--primary); margin-right: 0.5rem;"></i> Esportes ao vivo: Todos os campeonatos de futebol e mais!</li>
+    </ul>
+  </div>
+
+  <!-- Comparativo de Preços -->
+  <h2>Economize com CineFlick!</h2>
+  <div class="price-compare">
+    <div class="price-item">
+      <strong>Netflix</strong><br>R$59,90/mês
+    </div>
+    <div class="price-item">
+      <strong>Disney+</strong><br>R$33,90/mês
+    </div>
+    <div class="price-item">
+      <strong>HBO Max</strong><br>R$34,90/mês
+    </div>
+    <div class="price-item">
+      <strong>+ Outros</strong><br>R$200+/mês
+    </div>
+    <div class="price-item" style="background: var(--price);">
+      <strong>CineFlick</strong><br><strong>A partir de R$19,90/mês</strong>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <h2>Ainda com Dúvidas?</h2>
+    <details>
+      <summary>Precisa de internet para funcionar?</summary>
+      <p>Sim, mas uma conexão básica (até 4G) é suficiente para vídeos 4K. Sinal potencializado!</p>
+    </details>
+    <details>
+      <summary>Precisa de especialista para configurar?</summary>
+      <p>Não! Instalação simples com tutoriais passo a passo para qualquer aparelho.</p>
+    </details>
+    <details>
+      <summary>Planos e pagamento?</summary>
+      <p>Mensal: R$19,90 | Trimestral: R$39,90 | Semestral: R$69,90 | Anual: R$129,90. Acesso imediato por e-mail!</p>
+    </details>
+    <details>
+      <summary>Quantos aparelhos?</summary>
+      <p>Até 3 telas simultâneas. Suporte dedicado incluso.</p>
+    </details>
+    <p>Não encontrou sua dúvida? <a href="https://pay.kirvano.com/12e5cb1a-c3ac-4117-ad77-3c9b4ad54924?aff=c5e001c4-ddbd-4ca3-8f66-7962b1ccca15" target="_blank">Fale com o suporte</a>!</p>
+  </div>
+
+  <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 3rem;">Atualizado em tempo real para 05/11/2025. Fontes: Goal.com, ESPN, Globo Esporte.</p>
+  <footer>
+    <p>A venda da plataforma CineFlick em outros sites é proibida. Compre apenas no oficial. © CineFlick 2025. Suporte: suporte@cineflick.com. Desenvolvido por David Rocha.</p>
+    <p>Este site não tem vínculo com Facebook S/A. Toda responsabilidade é da CineFlick.</p>
+  </footer>
+
+  <script>
+    // Interatividade: Expande FAQ ao hover (opcional)
+    document.querySelectorAll('details').forEach(detail => {
+      detail.addEventListener('toggle', () => {
+        if (detail.open) detail.style.background = 'var(--primary)';
+      });
+    });
+  </script>
+</body>
+</html>
